@@ -61,3 +61,15 @@ GROUP BY
     scientific_name,
     common_name,
     family.name;
+
+SELECT FIELD.*
+FROM
+    FIELD
+    JOIN ROW ON FIELD.id = ROW.field_id
+    JOIN variety ON ROW.variety_id = variety.id
+    JOIN species ON variety.species_id = species.id
+    JOIN family ON species.family_id = family.id
+WHERE
+    family.name = 'mandarine'
+GROUP BY
+    FIELD.id;
