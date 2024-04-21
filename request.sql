@@ -19,24 +19,24 @@ WHERE
 SELECT *
 FROM "field"
 WHERE
-    id IN ( -- on récupère les info sur les bons champs
+    id IN ( 
         SELECT DISTINCT
             "field_id"
         FROM "row"
         WHERE
-            "variety_id" IN ( -- on récupère les id des champs contenant une variété d'un espéce de la famille mandarine
+            "variety_id" IN ( 
                 SELECT "id"
                 FROM "variety"
                 WHERE
-                    "species_id" IN ( -- on récupère les id des variétés des espèces de la famille mandarine
+                    "species_id" IN ( 
                         SELECT "id"
                         FROM "species"
                         WHERE
-                            "family_id" IN ( -- on récupère les id des espèces de la famille mandarine
+                            "family_id" IN ( 
                                 SELECT "id"
                                 FROM "family"
                                 WHERE
-                                    "name" = 'mandarine' -- on récupère l'id de la famille mandarine
+                                    "name" = 'mandarine' 
                             )
                     )
             )
